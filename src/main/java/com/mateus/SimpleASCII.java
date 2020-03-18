@@ -46,7 +46,7 @@ public class SimpleASCII {
             for (int x = 0; x < width; x++) {
                 int[] rgb = getSeparatedRGB(newImage.getRGB(x, y));
                 int averageBrightness = (rgb[0] + rgb[1] + rgb[2]) /3;
-                int chosenCharacterIndex = averageBrightness == 0 ? 0 : (averageBrightness * 65) /255;
+                int chosenCharacterIndex = (averageBrightness * 65) /255;
                 if (chosenCharacterIndex > 0) {
                     chosenCharacterIndex--;
                 }
