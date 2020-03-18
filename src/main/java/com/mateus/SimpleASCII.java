@@ -27,16 +27,9 @@ public class SimpleASCII {
         }
     }
     private static void toASCII(BufferedImage image) {
-        int width = image.getWidth();
-        int height = image.getHeight();
-        BufferedImage newImage;
-        if (height > MAX_HEIGHT) {
-            height = MAX_HEIGHT;
-        }
-        if (width > MAX_WIDTH) {
-            width = MAX_WIDTH;
-        }
-        newImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        int width = Math.min(image.getWidth(), MAX_WIDTH);
+        int height = Math.min(image.getHeight(), MAX_HEIGHT);
+        BufferedImage newImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = newImage.createGraphics();
         g.drawImage(image, 0, 0, width, height, null);
         g.dispose();
